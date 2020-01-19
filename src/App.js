@@ -6,7 +6,7 @@ import Amplify from "aws-amplify";
 import awsconfig from "./aws-exports";
 import { withAuthenticator } from "aws-amplify-react"; // or 'aws-amplify-react-native';
 
-import CreateProfile from "./pages/CreateProfile";
+import Profile from "./pages/Profile";
 
 Amplify.configure(awsconfig);
 
@@ -14,7 +14,7 @@ function App() {
   require("typeface-raleway");
   return (
     <div className="App">
-      <CreateProfile />
+      <Profile />
     </div>
   );
 }
