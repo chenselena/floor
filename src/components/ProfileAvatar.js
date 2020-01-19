@@ -1,13 +1,6 @@
 import React from "react";
-
-import { createMuiTheme } from "@material-ui/core/styles";
-import Box from "@material-ui/core/Box";
+import { createMuiTheme, makeStyles } from "@material-ui/core/styles";
 import Avatar from "@material-ui/core/Avatar";
-import { ThemeProvider } from "@material-ui/styles";
-import Button from "@material-ui/core/Button";
-
-import ProfileInput from "../components/ProfileInput";
-import ProfileAvatar from "../components/ProfileAvatar";
 
 const theme = createMuiTheme({
   palette: {
@@ -31,23 +24,33 @@ const theme = createMuiTheme({
   }
 });
 
-export default class CreateProfile extends React.Component {
-  render() {
-    return (
-      <Box>
-        <ThemeProvider theme={theme}>
-          <Box>
-            <h1>Create your profile</h1>
-          </Box>
-          <Box display="flex" justifyContent="center">
-            <ProfileAvatar />
-            <ProfileInput />
-          </Box>
-          <Button variant="contained" color="primary">
-            Create
-          </Button>
-        </ThemeProvider>
-      </Box>
-    );
+const useStyles = makeStyles(theme => ({
+  root: {
+    display: "flex",
+    "& > *": {
+      margin: theme.spacing(1)
+    }
+  },
+  peach: {
+    color: theme.palette.getContrastText(theme.palette.primary.main),
+    backgroundColor: theme.palette.primary.main,
+    width: theme.spacing(8),
+    height: theme.spacing(8)
+  },
+  purple: {
+    color: theme.palette.getContrastText(theme.palette.secondary.main),
+    backgroundColor: theme.palette.secondary.main,
+    width: theme.spacing(8),
+    height: theme.spacing(8)
   }
+}));
+
+export default function LetterAvatars() {
+  const classes = useStyles();
+
+  return (
+    <div className={classes.root}>
+      <Avatar className={classes.peach}>A</Avatar>
+    </div>
+  );
 }

@@ -6,23 +6,15 @@ import Amplify from "aws-amplify";
 import awsconfig from "./aws-exports";
 import { withAuthenticator } from "aws-amplify-react"; // or 'aws-amplify-react-native';
 
+import CreateProfile from "./pages/CreateProfile";
+
 Amplify.configure(awsconfig);
 
 function App() {
+  require("typeface-raleway");
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>hello22</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <CreateProfile />
     </div>
   );
 }
